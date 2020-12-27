@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        CarPredictions
+    </title>
+    <link rel="stylesheet" href="../static/styles/index.css">
+</head>
+
+<body>
+    <header>
+        <h1>Car Price Prediction</h1>
+        <h2>Car Price Prediction using Vehicle dataset from CarDekho</h2>
+    </header>
+    <form action="{{ url_for('predict')}}" method="post">
+        <div class="field-group">
+            <label for="Year" class="label">Year:</label>
+            <div class="field">
+                <input name="Year" id="Year" type="number" value="" required>
+            </div>
+        </div>
+
+        <div class="field-group">
+            <label for="Kms_Driven" class="label">Kms Driven:</label>
+            <div class="field">
+                <input name="Kms_Driven" id="Kms_Driven" type="number" value="" required>
+            </div>
+        </div>
+
+        <div class="field-group">
+            <label for="Present_Price" class="label">Price:</label>
+            <div class="field">
+                <input name="Present_Price" id="Present_Price" value="" required>
+            </div>
+        </div>
+
+        <div class="field-group">
+            <label for="Owner" class="label">Previous Owners:</label>
+            <div class="field">
+                <input name="Owner" id="Owner" type="number" value="" required>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="label">Fuel Type:</div>
+            <div class="field">
+                <select id="Fuel_Type_Petrol" name="Fuel_Type_Petrol">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="label">Seller:</div>
+            <div class="field">
+                <select id="Seller_Type_Individual" name="Seller_Type_Individual">
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="label">Transmission:</div>
+            <div class="field">
+                <select id="Transmission_Manual" name="Transmission_Manual">
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+            </div>
+        </div>
+        <div class="field-group">
+            <div class="field">
+                <input id="saveForm" name="saveForm" type="submit" value="Predict">
+            </div>
+        </div>
+    </form>
+    <br><br><h3 style="text-align: center;">{{ prediction_text }}</h3>
+</body>
+</html>
